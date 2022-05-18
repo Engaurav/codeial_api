@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 
 const db = require('./config/mongoose')
 
 const MongoStore = require('connect-mongo');
 
 
-
+app.use(cors());
 app.use('/', require('./routes'));
 
 app.listen(process.env.PORT || 8000, function(err) {
